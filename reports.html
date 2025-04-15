@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports - StockPro</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- DateRangePicker CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+
+    <!-- Custom CSS - Same styles as before -->
+    <link rel="stylesheet" href="reports.css" />
+  </head>
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Sidebar Navigation - Same as Dashboard -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar Brand -->
+        <div class="sidebar-brand">
+          <h1><i class="fas fa-chart-line me-2"></i> StockPro</h1>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-boxes"></i>
+                <span>Inventory</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Orders</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-truck"></i>
+                <span>Suppliers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="reports.html" class="nav-link active">
+                <i class="fas fa-file-invoice"></i>
+                <span>Reports</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <a href="#" class="btn btn-outline-primary btn-sm w-100">
+            <i class="fas fa-question-circle me-1"></i> Help Center
+          </a>
+        </div>
+      </aside>
+
+      <!-- Overlay for mobile view -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper" id="content-wrapper">
+        <!-- Top Navigation Bar - Same as Dashboard -->
+        <header class="topbar">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="search-bar">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..." />
+              <button class="btn" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="dropdown">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">5</span>
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-end notifications-dropdown"
+              >
+                <div class="notification-header">
+                  <h6 class="notification-title">Notifications</h6>
+                  <span class="notification-actions">Mark all as read</span>
+                </div>
+                <ul class="notification-list">
+                  <li class="notification-item">
+                    <div class="notification-icon bg-danger-light">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Low stock alert: Product XYZ is below threshold
+                      </p>
+                      <span class="notification-time">5 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-success-light">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Order #1234 has been fulfilled successfully
+                      </p>
+                      <span class="notification-time">30 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-primary-light">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        New shipment arrived from Supplier ABC
+                      </p>
+                      <span class="notification-time">2 hours ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-warning-light">
+                      <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Pending order #5678 requires attention
+                      </p>
+                      <span class="notification-time">Yesterday</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-info-light">
+                      <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        System update completed successfully
+                      </p>
+                      <span class="notification-time">2 days ago</span>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View all notifications</a>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn" type="button">
+              <i class="fas fa-cog"></i>
+            </button>
+
+            <div class="dropdown">
+              <div
+                class="user-profile"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user-avatar">
+                  <span>JD</span>
+                </div>
+                <div class="user-info">
+                  <div class="user-name">John Doe</div>
+                  <div class="user-role">Admin</div>
+                </div>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-user me-2"></i> Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-cog me-2"></i> Account Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt me-2"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Page Title & Breadcrumb -->
+          <div class="page-title">
+            <h1>Reports</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Reports
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Reports Page Content -->
+          <div class="row">
+            <!-- Left Side - Report Selection -->
+            <div class="col-lg-4 col-md-5 mb-4">
+              <!-- Saved Reports Card -->
+              <div class="dashboard-card mb-4">
+                <div class="card-header">
+                  <h5><i class="fas fa-bookmark me-2"></i> Saved Reports</h5>
+                  <div class="actions">
+                    <button
+                      class="btn"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-plus me-2"></i> New Folder</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-sort me-2"></i> Sort By</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="list-group list-group-flush">
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <i class="fas fa-chart-pie me-2"></i> Monthly Sales Report
+                      <span class="scheduled-report-badge"
+                        ><i class="fas fa-clock"></i> Monthly</span
+                      >
+                    </div>
+                    <span class="badge bg-white text-primary rounded-pill"
+                      >5d ago</span
+                    >
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <i class="fas fa-boxes me-2"></i> Inventory Status
+                    </div>
+                    <span class="badge bg-light text-dark rounded-pill"
+                      >1w ago</span
+                    >
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <i class="fas fa-chart-line me-2"></i> Product Performance
+                      <span class="scheduled-report-badge"
+                        ><i class="fas fa-clock"></i> Weekly</span
+                      >
+                    </div>
+                    <span class="badge bg-light text-dark rounded-pill"
+                      >2w ago</span
+                    >
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <i class="fas fa-truck me-2"></i> Supplier Analysis
+                    </div>
+                    <span class="badge bg-light text-dark rounded-pill"
+                      >1m ago</span
+                    >
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <i class="fas fa-exclamation-triangle me-2"></i> Low Stock
+                      Report
+                      <span class="scheduled-report-badge"
+                        ><i class="fas fa-clock"></i> Daily</span
+                      >
+                    </div>
+                    <span class="badge bg-light text-dark rounded-pill"
+                      >1m ago</span
+                    >
+                  </a>
+                </div>
+              </div>
+
+              <!-- Create New Report Card -->
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h5>
+                    <i class="fas fa-plus-circle me-2"></i> Create New Report
+                  </h5>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted mb-4">
+                    Select a report type to generate a new custom report based
+                    on your requirements.
+                  </p>
+
+                  <div class="report-type-selector">
+                    <div class="row g-3">
+                      <div class="col-6">
+                        <div
+                          class="report-type-card active"
+                          data-report-type="sales"
+                        >
+                          <div class="icon bg-primary-light">
+                            <i class="fas fa-chart-pie"></i>
+                          </div>
+                          <h6>Sales Report</h6>
+                          <p>Revenue analysis</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div
+                          class="report-type-card"
+                          data-report-type="inventory"
+                        >
+                          <div class="icon bg-success-light">
+                            <i class="fas fa-boxes"></i>
+                          </div>
+                          <h6>Inventory</h6>
+                          <p>Stock levels</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div
+                          class="report-type-card"
+                          data-report-type="products"
+                        >
+                          <div class="icon bg-warning-light">
+                            <i class="fas fa-tag"></i>
+                          </div>
+                          <h6>Products</h6>
+                          <p>Performance metrics</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div
+                          class="report-type-card"
+                          data-report-type="customers"
+                        >
+                          <div class="icon bg-danger-light">
+                            <i class="fas fa-user"></i>
+                          </div>
+                          <h6>Customers</h6>
+                          <p>Order history</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div
+                          class="report-type-card"
+                          data-report-type="suppliers"
+                        >
+                          <div
+                            class="icon"
+                            style="
+                              background-color: rgba(14, 165, 233, 0.1);
+                              color: var(--info);
+                            "
+                          >
+                            <i class="fas fa-truck"></i>
+                          </div>
+                          <h6>Suppliers</h6>
+                          <p>Supply chain</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="report-type-card" data-report-type="custom">
+                          <div
+                            class="icon"
+                            style="
+                              background-color: rgba(107, 114, 128, 0.1);
+                              color: var(--medium);
+                            "
+                          >
+                            <i class="fas fa-sliders-h"></i>
+                          </div>
+                          <h6>Custom</h6>
+                          <p>Build your own</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side - Report Configuration and Preview -->
+            <div class="col-lg-8 col-md-7">
+              <!-- Report Filters Card -->
+              <div class="dashboard-card report-filter-card">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                      <label class="form-label">Date Range</label>
+                      <div class="date-filter" id="dateRangePicker">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Apr 1, 2023 - Apr 15, 2023</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                      <label class="form-label">Categories</label>
+                      <select class="form-select">
+                        <option value="all" selected>All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="others">Others</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">View Type</label>
+                      <div class="btn-group w-100" role="group">
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="viewType"
+                          id="viewChart"
+                          autocomplete="off"
+                          checked
+                        />
+                        <label class="btn btn-outline-primary" for="viewChart"
+                          ><i class="fas fa-chart-bar"></i
+                        ></label>
+
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="viewType"
+                          id="viewTable"
+                          autocomplete="off"
+                        />
+                        <label class="btn btn-outline-primary" for="viewTable"
+                          ><i class="fas fa-table"></i
+                        ></label>
+
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="viewType"
+                          id="viewSummary"
+                          autocomplete="off"
+                        />
+                        <label class="btn btn-outline-primary" for="viewSummary"
+                          ><i class="fas fa-list-alt"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Report Content Tabs -->
+              <ul class="nav nav-tabs" id="reportTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="overview-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#overview"
+                    type="button"
+                    role="tab"
+                    aria-controls="overview"
+                    aria-selected="true"
+                  >
+                    Overview
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="trends-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#trends"
+                    type="button"
+                    role="tab"
+                    aria-controls="trends"
+                    aria-selected="false"
+                  >
+                    Trends
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="details-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#details"
+                    type="button"
+                    role="tab"
+                    aria-controls="details"
+                    aria-selected="false"
+                  >
+                    Details
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="settings-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#settings"
+                    type="button"
+                    role="tab"
+                    aria-controls="settings"
+                    aria-selected="false"
+                  >
+                    Settings
+                  </button>
+                </li>
+                <li class="ms-auto">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-primary"
+                      id="exportButton"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-download me-1"></i> Export
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-file-pdf me-2"></i> PDF</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-file-excel me-2"></i> Excel</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-file-csv me-2"></i> CSV</a
+                        >
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-print me-2"></i> Print</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="reportTabsContent">
+                <!-- Overview Tab -->
+                <div
+                  class="tab-pane fade show active"
+                  id="overview"
+                  role="tabpanel"
+                  aria-labelledby="overview-tab"
+                >
+                  <div class="dashboard-card mb-4">
+                    <div class="card-header">
+                      <h5>Monthly Sales Report</h5>
+                      <div class="actions">
+                        <button
+                          class="btn btn-sm"
+                          type="button"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Refresh"
+                        >
+                          <i class="fas fa-sync"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <!-- Key Metrics Row -->
+                      <div class="row mb-4">
+                        <div class="col-md-3 col-6 mb-3 mb-md-0">
+                          <div class="text-center">
+                            <h3 class="mb-0">$45,829</h3>
+                            <p class="text-muted mb-0">Total Revenue</p>
+                            <small class="text-success"
+                              ><i class="fas fa-arrow-up me-1"></i> 12.7%</small
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3 mb-md-0">
+                          <div class="text-center">
+                            <h3 class="mb-0">876</h3>
+                            <p class="text-muted mb-0">Orders</p>
+                            <small class="text-success"
+                              ><i class="fas fa-arrow-up me-1"></i> 5.3%</small
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <div class="text-center">
+                            <h3 class="mb-0">$52.31</h3>
+                            <p class="text-muted mb-0">Avg. Order Value</p>
+                            <small class="text-success"
+                              ><i class="fas fa-arrow-up me-1"></i> 7.1%</small
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <div class="text-center">
+                            <h3 class="mb-0">1,256</h3>
+                            <p class="text-muted mb-0">Units Sold</p>
+                            <small class="text-danger"
+                              ><i class="fas fa-arrow-down me-1"></i>
+                              2.4%</small
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Chart -->
+                      <div class="chart-container">
+                        <canvas id="reportChart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Top Categories -->
+                  <div class="dashboard-card mb-4">
+                    <div class="card-header">
+                      <h5>Top Performing Categories</h5>
+                    </div>
+                    <div class="card-body">
+                      <div class="visual-data-row">
+                        <div class="visual-data-label">Electronics</div>
+                        <div class="visual-data-bar-container">
+                          <div
+                            class="visual-data-bar"
+                            style="width: 75%; background-color: var(--primary)"
+                          ></div>
+                        </div>
+                        <div class="visual-data-value">$34,372</div>
+                      </div>
+                      <div class="visual-data-row">
+                        <div class="visual-data-label">Clothing</div>
+                        <div class="visual-data-bar-container">
+                          <div
+                            class="visual-data-bar"
+                            style="width: 58%; background-color: var(--success)"
+                          ></div>
+                        </div>
+                        <div class="visual-data-value">$26,581</div>
+                      </div>
+                      <div class="visual-data-row">
+                        <div class="visual-data-label">Furniture</div>
+                        <div class="visual-data-bar-container">
+                          <div
+                            class="visual-data-bar"
+                            style="width: 42%; background-color: var(--warning)"
+                          ></div>
+                        </div>
+                        <div class="visual-data-value">$19,247</div>
+                      </div>
+                      <div class="visual-data-row">
+                        <div class="visual-data-label">Accessories</div>
+                        <div class="visual-data-bar-container">
+                          <div
+                            class="visual-data-bar"
+                            style="width: 36%; background-color: var(--info)"
+                          ></div>
+                        </div>
+                        <div class="visual-data-value">$16,493</div>
+                      </div>
+                      <div class="visual-data-row">
+                        <div class="visual-data-label">Others</div>
+                        <div class="visual-data-bar-container">
+                          <div
+                            class="visual-data-bar"
+                            style="width: 21%; background-color: var(--danger)"
+                          ></div>
+                        </div>
+                        <div class="visual-data-value">$9,625</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Top Products -->
+                  <div class="dashboard-card">
+                    <div class="card-header">
+                      <h5>Top Selling Products</h5>
+                    </div>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table
+                          class="data-table report-data-table table table-hover mb-0"
+                        >
+                          <thead>
+                            <tr>
+                              <th>Product</th>
+                              <th>Category</th>
+                              <th>Units Sold</th>
+                              <th>Revenue</th>
+                              <th>Growth</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div class="product-cell">
+                                  <div class="product-image">
+                                    <i class="fas fa-laptop"></i>
+                                  </div>
+                                  <div class="product-info">
+                                    <div class="product-name">MacBook Pro</div>
+                                    <div class="product-category">
+                                      SKU: MB-PRO-2022
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>Electronics</td>
+                              <td>124</td>
+                              <td>$235,476</td>
+                              <td>
+                                <span class="text-success"
+                                  ><i class="fas fa-arrow-up me-1"></i>
+                                  15.8%</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="product-cell">
+                                  <div class="product-image">
+                                    <i class="fas fa-tshirt"></i>
+                                  </div>
+                                  <div class="product-info">
+                                    <div class="product-name">
+                                      Summer T-Shirt
+                                    </div>
+                                    <div class="product-category">
+                                      SKU: ST-BL-XL
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>Clothing</td>
+                              <td>387</td>
+                              <td>$15,480</td>
+                              <td>
+                                <span class="text-success"
+                                  ><i class="fas fa-arrow-up me-1"></i>
+                                  8.2%</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="product-cell">
+                                  <div class="product-image">
+                                    <i class="fas fa-headphones"></i>
+                                  </div>
+                                  <div class="product-info">
+                                    <div class="product-name">
+                                      Wireless Headphones
+                                    </div>
+                                    <div class="product-category">
+                                      SKU: WH-BT-202
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>Electronics</td>
+                              <td>218</td>
+                              <td>$34,662</td>
+                              <td>
+                                <span class="text-success"
+                                  ><i class="fas fa-arrow-up me-1"></i>
+                                  12.5%</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="product-cell">
+                                  <div class="product-image">
+                                    <i class="fas fa-couch"></i>
+                                  </div>
+                                  <div class="product-info">
+                                    <div class="product-name">Office Chair</div>
+                                    <div class="product-category">
+                                      SKU: OC-BLK-ERG
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>Furniture</td>
+                              <td>103</td>
+                              <td>$25,647</td>
+                              <td>
+                                <span class="text-danger"
+                                  ><i class="fas fa-arrow-down me-1"></i>
+                                  3.2%</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="product-cell">
+                                  <div class="product-image">
+                                    <i class="fas fa-mobile-alt"></i>
+                                  </div>
+                                  <div class="product-info">
+                                    <div class="product-name">Smartphone X</div>
+                                    <div class="product-category">
+                                      SKU: SPX-BLK-128
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>Electronics</td>
+                              <td>178</td>
+                              <td>$160,022</td>
+                              <td>
+                                <span class="text-success"
+                                  ><i class="fas fa-arrow-up me-1"></i>
+                                  7.4%</span
+                                >
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trends Tab -->
+                <div
+                  class="tab-pane fade"
+                  id="trends"
+                  role="tabpanel"
+                  aria-labelledby="trends-tab"
+                >
+                  <div class="dashboard-card mb-4">
+                    <div class="card-header">
+                      <h5>Sales Trends Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                      <div class="row mb-4">
+                        <div class="col-12">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary active"
+                            >
+                              Daily
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary"
+                            >
+                              Weekly
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary"
+                            >
+                              Monthly
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary"
+                            >
+                              Quarterly
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary"
+                            >
+                              Yearly
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Trend Chart -->
+                      <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title">Growth Rate</h6>
+                              <h3 class="text-success">
+                                +12.7%
+                                <small class="text-muted">vs last period</small>
+                              </h3>
+                              <p class="card-text text-muted">
+                                The growth rate has increased by 5.2% compared
+                                to the previous month.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title">Peak Sales Day</h6>
+                              <h3>
+                                Tuesday
+                                <small class="text-muted"
+                                  >+24% above average</small
+                                >
+                              </h3>
+                              <p class="card-text text-muted">
+                                Tuesday consistently shows the highest sales
+                                volume across all weeks.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Seasonal Analysis -->
+                  <div class="dashboard-card">
+                    <div class="card-header">
+                      <h5>Seasonal Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                      <p class="text-muted mb-4">
+                        This chart shows the seasonal sales patterns to help
+                        identify trends and prepare for future inventory needs.
+                      </p>
+
+                      <!-- Seasonality Chart -->
+                      <div class="chart-container">
+                        <canvas id="seasonalityChart"></canvas>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                          <div class="card bg-light">
+                            <div class="card-body text-center">
+                              <h6 class="card-title">Top Season</h6>
+                              <div class="mb-2">
+                                <i class="fas fa-sun fa-2x text-warning"></i>
+                              </div>
+                              <h5>Summer</h5>
+                              <p class="mb-0 small text-muted">June - August</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                          <div class="card bg-light">
+                            <div class="card-body text-center">
+                              <h6 class="card-title">Peak Month</h6>
+                              <div class="mb-2">
+                                <i
+                                  class="fas fa-calendar-alt fa-2x text-primary"
+                                ></i>
+                              </div>
+                              <h5>December</h5>
+                              <p class="mb-0 small text-muted">
+                                Holiday season
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="card bg-light">
+                            <div class="card-body text-center">
+                              <h6 class="card-title">Lowest Period</h6>
+                              <div class="mb-2">
+                                <i class="fas fa-snowflake fa-2x text-info"></i>
+                              </div>
+                              <h5>January</h5>
+                              <p class="mb-0 small text-muted">Post-holiday</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Details Tab -->
+                <div
+                  class="tab-pane fade"
+                  id="details"
+                  role="tabpanel"
+                  aria-labelledby="details-tab"
+                >
+                  <div class="dashboard-card mb-4">
+                    <div class="card-header">
+                      <h5>Detailed Sales Data</h5>
+                      <div class="actions">
+                        <button class="btn btn-sm btn-outline-primary">
+                          <i class="fas fa-filter me-1"></i> Filter
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table
+                          class="data-table report-data-table table table-hover mb-0"
+                        >
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Order ID</th>
+                              <th>Product</th>
+                              <th>Customer</th>
+                              <th>Units</th>
+                              <th>Amount</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Apr 15, 2023</td>
+                              <td>#ORD-7364</td>
+                              <td>MacBook Pro</td>
+                              <td>John Smith</td>
+                              <td>1</td>
+                              <td>$1,899.00</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 14, 2023</td>
+                              <td>#ORD-7363</td>
+                              <td>Summer T-Shirt</td>
+                              <td>Emma Brown</td>
+                              <td>3</td>
+                              <td>$119.97</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 14, 2023</td>
+                              <td>#ORD-7362</td>
+                              <td>Office Chair</td>
+                              <td>Robert Johnson</td>
+                              <td>1</td>
+                              <td>$249.00</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 13, 2023</td>
+                              <td>#ORD-7361</td>
+                              <td>Wireless Headphones</td>
+                              <td>Sarah Davis</td>
+                              <td>1</td>
+                              <td>$159.00</td>
+                              <td>
+                                <span class="status-badge badge-danger"
+                                  >Cancelled</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 13, 2023</td>
+                              <td>#ORD-7360</td>
+                              <td>Smartphone X</td>
+                              <td>Michael Wilson</td>
+                              <td>1</td>
+                              <td>$899.00</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 12, 2023</td>
+                              <td>#ORD-7359</td>
+                              <td>Water Bottle</td>
+                              <td>Jennifer Lee</td>
+                              <td>2</td>
+                              <td>$39.98</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 12, 2023</td>
+                              <td>#ORD-7358</td>
+                              <td>Desk Lamp</td>
+                              <td>David Martinez</td>
+                              <td>1</td>
+                              <td>$45.99</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 11, 2023</td>
+                              <td>#ORD-7357</td>
+                              <td>Gaming Headset</td>
+                              <td>Jessica Taylor</td>
+                              <td>1</td>
+                              <td>$129.99</td>
+                              <td>
+                                <span class="status-badge badge-warning"
+                                  >Pending</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 11, 2023</td>
+                              <td>#ORD-7356</td>
+                              <td>Running Shoes</td>
+                              <td>Christopher Anderson</td>
+                              <td>1</td>
+                              <td>$89.95</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Apr 10, 2023</td>
+                              <td>#ORD-7355</td>
+                              <td>Coffee Maker</td>
+                              <td>Amanda White</td>
+                              <td>1</td>
+                              <td>$75.50</td>
+                              <td>
+                                <span class="status-badge badge-success"
+                                  >Completed</span
+                                >
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center mb-0">
+                          <li class="page-item disabled">
+                            <a
+                              class="page-link"
+                              href="#"
+                              tabindex="-1"
+                              aria-disabled="true"
+                              >Previous</a
+                            >
+                          </li>
+                          <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div
+                  class="tab-pane fade"
+                  id="settings"
+                  role="tabpanel"
+                  aria-labelledby="settings-tab"
+                >
+                  <div class="dashboard-card">
+                    <div class="card-header">
+                      <h5>Report Settings</h5>
+                    </div>
+                    <div class="card-body report-settings">
+                      <form>
+                        <div class="mb-3">
+                          <label class="form-label">Report Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            value="Monthly Sales Report"
+                          />
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-md-6">
+                            <label class="form-label">Chart Type</label>
+                            <select class="form-select">
+                              <option value="line" selected>Line Chart</option>
+                              <option value="bar">Bar Chart</option>
+                              <option value="pie">Pie Chart</option>
+                              <option value="doughnut">Doughnut Chart</option>
+                              <option value="radar">Radar Chart</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="form-label">Data Grouping</label>
+                            <select class="form-select">
+                              <option value="daily" selected>Daily</option>
+                              <option value="weekly">Weekly</option>
+                              <option value="monthly">Monthly</option>
+                              <option value="quarterly">Quarterly</option>
+                              <option value="yearly">Yearly</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Include Metrics</label>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-check mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="metricRevenue"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="metricRevenue"
+                                  >Revenue</label
+                                >
+                              </div>
+                              <div class="form-check mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="metricOrders"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="metricOrders"
+                                  >Orders</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="metricUnits"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="metricUnits"
+                                  >Units Sold</label
+                                >
+                              </div>
+                              <div class="form-check mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="metricAOV"
+                                  checked
+                                />
+                                <label class="form-check-label" for="metricAOV"
+                                  >Avg. Order Value</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="metricProfit"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="metricProfit"
+                                  >Profit Margin</label
+                                >
+                              </div>
+                              <div class="form-check mb-2">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="metricTax"
+                                />
+                                <label class="form-check-label" for="metricTax"
+                                  >Taxes</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="mb-3">
+                          <label class="form-label">Schedule Report</label>
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <div class="form-check form-switch">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  id="scheduleReport"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="scheduleReport"
+                                  >Enable automatic report generation</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-md-4">
+                            <label class="form-label">Frequency</label>
+                            <select class="form-select">
+                              <option value="daily">Daily</option>
+                              <option value="weekly">Weekly</option>
+                              <option value="monthly" selected>Monthly</option>
+                              <option value="quarterly">Quarterly</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+                            <label class="form-label">Send on</label>
+                            <select class="form-select">
+                              <option value="1" selected>
+                                1st day of month
+                              </option>
+                              <option value="15">15th day of month</option>
+                              <option value="last">Last day of month</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+                            <label class="form-label">Time</label>
+                            <input
+                              type="time"
+                              class="form-control"
+                              value="08:00"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Recipients</label>
+                          <select class="form-select" multiple>
+                            <option value="john" selected>
+                              John Doe (john@example.com)
+                            </option>
+                            <option value="sarah" selected>
+                              Sarah Johnson (sarah@example.com)
+                            </option>
+                            <option value="michael">
+                              Michael Brown (michael@example.com)
+                            </option>
+                            <option value="emma">
+                              Emma Wilson (emma@example.com)
+                            </option>
+                          </select>
+                          <small class="text-muted"
+                            >Hold Ctrl/Cmd to select multiple recipients</small
+                          >
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Report Format</label>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="reportFormat"
+                              id="formatPDF"
+                              value="pdf"
+                              checked
+                            />
+                            <label class="form-check-label" for="formatPDF"
+                              >PDF</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="reportFormat"
+                              id="formatExcel"
+                              value="excel"
+                            />
+                            <label class="form-check-label" for="formatExcel"
+                              >Excel</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="reportFormat"
+                              id="formatCSV"
+                              value="csv"
+                            />
+                            <label class="form-check-label" for="formatCSV"
+                              >CSV</label
+                            >
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Custom Message</label>
+                          <textarea class="form-control" rows="3">
+Here is the monthly sales report for your review. Please let me know if you have any questions.</textarea
+                          >
+                        </div>
+
+                        <div class="text-end">
+                          <button
+                            type="button"
+                            class="btn btn-outline-secondary me-2"
+                          >
+                            Cancel
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            Save Settings
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- DateRangePicker JS -->
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="reports.js"></script>
+  </body>
+</html>

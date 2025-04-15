@@ -1,0 +1,2500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings - StockPro Management System</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar Brand -->
+        <div class="sidebar-brand">
+          <h1><i class="fas fa-chart-line me-2"></i> StockPro</h1>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-boxes"></i>
+                <span>Inventory</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Orders</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-truck"></i>
+                <span>Suppliers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-file-invoice"></i>
+                <span>Reports</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <a href="#" class="btn btn-outline-primary btn-sm w-100">
+            <i class="fas fa-question-circle me-1"></i> Help Center
+          </a>
+        </div>
+      </aside>
+
+      <!-- Overlay for mobile view -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper" id="content-wrapper">
+        <!-- Top Navigation Bar -->
+        <header class="topbar">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="search-bar">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..." />
+              <button class="btn" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="dropdown">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">5</span>
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-end notifications-dropdown"
+              >
+                <div class="notification-header">
+                  <h6 class="notification-title">Notifications</h6>
+                  <span class="notification-actions">Mark all as read</span>
+                </div>
+                <ul class="notification-list">
+                  <li class="notification-item">
+                    <div class="notification-icon bg-danger-light">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Low stock alert: Product XYZ is below threshold
+                      </p>
+                      <span class="notification-time">5 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-success-light">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Order #1234 has been fulfilled successfully
+                      </p>
+                      <span class="notification-time">30 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-primary-light">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        New shipment arrived from Supplier ABC
+                      </p>
+                      <span class="notification-time">2 hours ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-warning-light">
+                      <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Pending order #5678 requires attention
+                      </p>
+                      <span class="notification-time">Yesterday</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-info-light">
+                      <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        System update completed successfully
+                      </p>
+                      <span class="notification-time">2 days ago</span>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View all notifications</a>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn" type="button">
+              <i class="fas fa-cog"></i>
+            </button>
+
+            <div class="dropdown">
+              <div
+                class="user-profile"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user-avatar">
+                  <span>JD</span>
+                </div>
+                <div class="user-info">
+                  <div class="user-name">John Doe</div>
+                  <div class="user-role">Admin</div>
+                </div>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-user me-2"></i> Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-cog me-2"></i> Account Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt me-2"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Page Title & Breadcrumb -->
+          <div class="page-title">
+            <h1>Settings</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Settings
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Settings Content -->
+          <div class="row">
+            <!-- Settings Navigation -->
+            <div class="col-lg-3 col-md-4 mb-4">
+              <div class="dashboard-card p-3">
+                <div class="settings-nav-title mb-3">
+                  <strong>Settings</strong>
+                </div>
+                <div
+                  class="nav flex-column nav-pills"
+                  id="settings-tab"
+                  role="tablist"
+                  aria-orientation="vertical"
+                >
+                  <button
+                    class="nav-link active"
+                    id="account-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#account"
+                    type="button"
+                    role="tab"
+                    aria-controls="account"
+                    aria-selected="true"
+                  >
+                    <i class="fas fa-user"></i> Account
+                  </button>
+                  <button
+                    class="nav-link"
+                    id="appearance-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#appearance"
+                    type="button"
+                    role="tab"
+                    aria-controls="appearance"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-paint-brush"></i> Appearance
+                  </button>
+                  <button
+                    class="nav-link"
+                    id="notifications-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#notifications"
+                    type="button"
+                    role="tab"
+                    aria-controls="notifications"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-bell"></i> Notifications
+                  </button>
+                  <button
+                    class="nav-link"
+                    id="inventory-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#inventory"
+                    type="button"
+                    role="tab"
+                    aria-controls="inventory"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-boxes"></i> Inventory
+                  </button>
+                  <button
+                    class="nav-link"
+                    id="security-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#security"
+                    type="button"
+                    role="tab"
+                    aria-controls="security"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-shield-alt"></i> Security
+                  </button>
+                  <button
+                    class="nav-link"
+                    id="integrations-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#integrations"
+                    type="button"
+                    role="tab"
+                    aria-controls="integrations"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-plug"></i> Integrations
+                  </button>
+                  <button
+                    class="nav-link"
+                    id="billing-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#billing"
+                    type="button"
+                    role="tab"
+                    aria-controls="billing"
+                    aria-selected="false"
+                  >
+                    <i class="fas fa-credit-card"></i> Billing
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="col-lg-9 col-md-8">
+              <div class="dashboard-card">
+                <div class="tab-content" id="settings-tabContent">
+                  <!-- Account Tab -->
+                  <div
+                    class="tab-pane fade show active"
+                    id="account"
+                    role="tabpanel"
+                    aria-labelledby="account-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Account Settings</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Profile Information
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-2 mb-4 mb-md-0">
+                            <div class="avatar-upload">
+                              <div class="avatar-preview">
+                                <span>JD</span>
+                              </div>
+                              <button class="btn btn-primary">
+                                <i class="fas fa-camera"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="col-md-10">
+                            <div class="row">
+                              <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label"
+                                  >First Name</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="firstName"
+                                  value="John"
+                                />
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label"
+                                  >Last Name</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="lastName"
+                                  value="Doe"
+                                />
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label"
+                                  >Email Address</label
+                                >
+                                <input
+                                  type="email"
+                                  class="form-control"
+                                  id="email"
+                                  value="john.doe@example.com"
+                                />
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label"
+                                  >Phone Number</label
+                                >
+                                <input
+                                  type="tel"
+                                  class="form-control"
+                                  id="phone"
+                                  value="+1 (555) 123-4567"
+                                />
+                              </div>
+                              <div class="col-12 mb-3">
+                                <label for="jobTitle" class="form-label"
+                                  >Job Title</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="jobTitle"
+                                  value="Inventory Manager"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Company Information
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="companyName" class="form-label"
+                              >Company Name</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="companyName"
+                              value="Acme Corporation"
+                            />
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="industry" class="form-label"
+                              >Industry</label
+                            >
+                            <select class="form-select" id="industry">
+                              <option>Retail</option>
+                              <option>Manufacturing</option>
+                              <option>Distribution</option>
+                              <option>Healthcare</option>
+                              <option>Technology</option>
+                              <option>Other</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="businessEmail" class="form-label"
+                              >Business Email</label
+                            >
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="businessEmail"
+                              value="info@acmecorp.com"
+                            />
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="businessPhone" class="form-label"
+                              >Business Phone</label
+                            >
+                            <input
+                              type="tel"
+                              class="form-control"
+                              id="businessPhone"
+                              value="+1 (555) 987-6543"
+                            />
+                          </div>
+                          <div class="col-12 mb-3">
+                            <label for="address" class="form-label"
+                              >Address</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control mb-2"
+                              id="address"
+                              value="123 Business Ave, Suite 100"
+                            />
+                            <div class="row">
+                              <div class="col-md-5 mb-2 mb-md-0">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="City"
+                                  value="San Francisco"
+                                />
+                              </div>
+                              <div class="col-md-3 mb-2 mb-md-0">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="State"
+                                  value="CA"
+                                />
+                              </div>
+                              <div class="col-md-4">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Zip Code"
+                                  value="94107"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Preferences</h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="language" class="form-label"
+                              >Language</label
+                            >
+                            <select class="form-select" id="language">
+                              <option value="en-US" selected>
+                                English (United States)
+                              </option>
+                              <option value="es-ES">Español (España)</option>
+                              <option value="fr-FR">Français (France)</option>
+                              <option value="de-DE">
+                                Deutsch (Deutschland)
+                              </option>
+                              <option value="ja-JP">日本語 (日本)</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="timezone" class="form-label"
+                              >Time Zone</label
+                            >
+                            <select class="form-select" id="timezone">
+                              <option value="America/Los_Angeles" selected>
+                                Pacific Time (US & Canada)
+                              </option>
+                              <option value="America/Denver">
+                                Mountain Time (US & Canada)
+                              </option>
+                              <option value="America/Chicago">
+                                Central Time (US & Canada)
+                              </option>
+                              <option value="America/New_York">
+                                Eastern Time (US & Canada)
+                              </option>
+                              <option value="Europe/London">London</option>
+                              <option value="Europe/Paris">Paris</option>
+                              <option value="Asia/Tokyo">Tokyo</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="dateFormat" class="form-label"
+                              >Date Format</label
+                            >
+                            <select class="form-select" id="dateFormat">
+                              <option value="MM/DD/YYYY" selected>
+                                MM/DD/YYYY
+                              </option>
+                              <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                              <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="currency" class="form-label"
+                              >Currency</label
+                            >
+                            <select class="form-select" id="currency">
+                              <option value="USD" selected>
+                                US Dollar ($)
+                              </option>
+                              <option value="EUR">Euro (€)</option>
+                              <option value="GBP">British Pound (£)</option>
+                              <option value="JPY">Japanese Yen (¥)</option>
+                              <option value="CAD">Canadian Dollar (CAD)</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary me-2"
+                        >
+                          Discard Changes
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save Changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Appearance Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="appearance"
+                    role="tabpanel"
+                    aria-labelledby="appearance-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Appearance Settings</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Theme Options</h5>
+                        <div class="row">
+                          <div class="col-6 col-md-3 mb-4">
+                            <div class="theme-card active">
+                              <div class="theme-preview theme-light"></div>
+                              <div class="theme-info">
+                                <div class="theme-name">Light Mode</div>
+                                <small class="text-muted">Default</small>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6 col-md-3 mb-4">
+                            <div class="theme-card">
+                              <div class="theme-preview theme-dark"></div>
+                              <div class="theme-info">
+                                <div class="theme-name">Dark Mode</div>
+                                <small class="text-muted">Elegant</small>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6 col-md-3 mb-4">
+                            <div class="theme-card">
+                              <div class="theme-preview theme-blue"></div>
+                              <div class="theme-info">
+                                <div class="theme-name">Blue Theme</div>
+                                <small class="text-muted">Professional</small>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6 col-md-3 mb-4">
+                            <div class="theme-card">
+                              <div class="theme-preview theme-green"></div>
+                              <div class="theme-info">
+                                <div class="theme-name">Green Theme</div>
+                                <small class="text-muted">Eco-friendly</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Color Accent</h5>
+                        <p class="text-muted mb-3">
+                          Choose a primary color for buttons, links, and
+                          accents.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                          <div
+                            class="color-swatch active"
+                            style="background-color: #5b73e8"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #38bfac"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #ff6b6b"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #ffb761"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #10b981"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #0ea5e9"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #8b5cf6"
+                          ></div>
+                          <div
+                            class="color-swatch"
+                            style="background-color: #ec4899"
+                          ></div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Layout Options</h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="compactSidebar"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="compactSidebar"
+                                  >Compact Sidebar</label
+                                >
+                                <p class="switch-description">
+                                  Display smaller sidebar with icons only
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="stickyHeader"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="stickyHeader"
+                                  >Sticky Header</label
+                                >
+                                <p class="switch-description">
+                                  Keep header at the top when scrolling
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="boxedLayout"
+                              />
+                              <div>
+                                <label class="switch-label" for="boxedLayout"
+                                  >Boxed Layout</label
+                                >
+                                <p class="switch-description">
+                                  Contain layout to a centered area
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="rtlMode"
+                              />
+                              <div>
+                                <label class="switch-label" for="rtlMode"
+                                  >RTL Mode</label
+                                >
+                                <p class="switch-description">
+                                  Right-to-left text direction
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Dashboard Widgets
+                        </h5>
+                        <p class="text-muted mb-3">
+                          Choose which widgets to display on your dashboard.
+                        </p>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="salesWidget"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="salesWidget"
+                                  >Sales & Revenue</label
+                                >
+                                <p class="switch-description">
+                                  Display sales metrics and trends
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="inventoryWidget"
+                                checked
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="inventoryWidget"
+                                  >Inventory Overview</label
+                                >
+                                <p class="switch-description">
+                                  Show current stock levels and distribution
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="ordersWidget"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="ordersWidget"
+                                  >Recent Orders</label
+                                >
+                                <p class="switch-description">
+                                  Display latest order transactions
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="lowStockWidget"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="lowStockWidget"
+                                  >Low Stock Alerts</label
+                                >
+                                <p class="switch-description">
+                                  Show items that need restocking
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="customerWidget"
+                              />
+                              <div>
+                                <label class="switch-label" for="customerWidget"
+                                  >Customer Analytics</label
+                                >
+                                <p class="switch-description">
+                                  Show customer demographics and insights
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="calendarWidget"
+                              />
+                              <div>
+                                <label class="switch-label" for="calendarWidget"
+                                  >Calendar & Events</label
+                                >
+                                <p class="switch-description">
+                                  Display upcoming scheduled events
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary me-2"
+                        >
+                          Reset to Default
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save Changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Notifications Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="notifications"
+                    role="tabpanel"
+                    aria-labelledby="notifications-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Notification Settings</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Email Notifications
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="emailLowStock"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="emailLowStock"
+                                  >Low Stock Alerts</label
+                                >
+                                <p class="switch-description">
+                                  Receive emails when items fall below threshold
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="emailNewOrders"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="emailNewOrders"
+                                  >New Order Notifications</label
+                                >
+                                <p class="switch-description">
+                                  Get notified when new orders are placed
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="emailShipment"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="emailShipment"
+                                  >Shipment Updates</label
+                                >
+                                <p class="switch-description">
+                                  Notifications about incoming and outgoing
+                                  shipments
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="emailReports"
+                              />
+                              <div>
+                                <label class="switch-label" for="emailReports"
+                                  >Weekly Reports</label
+                                >
+                                <p class="switch-description">
+                                  Receive summary reports every week
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Push Notifications
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="pushEnabled"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="pushEnabled"
+                                  >Enable Push Notifications</label
+                                >
+                                <p class="switch-description">
+                                  Allow browser push notifications
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="pushLowStock"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="pushLowStock"
+                                  >Low Stock Alerts</label
+                                >
+                                <p class="switch-description">
+                                  Get push notifications for low inventory
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="pushOrders"
+                                checked
+                              />
+                              <div>
+                                <label class="switch-label" for="pushOrders"
+                                  >Order Status Changes</label
+                                >
+                                <p class="switch-description">
+                                  Notifications when order status changes
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="pushSystemUpdates"
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="pushSystemUpdates"
+                                  >System Updates</label
+                                >
+                                <p class="switch-description">
+                                  Notifications about system updates
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Notification Thresholds
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="lowStockThreshold" class="form-label"
+                              >Low Stock Threshold (%)</label
+                            >
+                            <div class="input-group">
+                              <input
+                                type="number"
+                                class="form-control"
+                                id="lowStockThreshold"
+                                value="15"
+                              />
+                              <span class="input-group-text">%</span>
+                            </div>
+                            <small class="text-muted"
+                              >Notify when stock falls below this percentage of
+                              max inventory</small
+                            >
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="orderValueThreshold" class="form-label"
+                              >High Value Order Threshold</label
+                            >
+                            <div class="input-group">
+                              <span class="input-group-text">$</span>
+                              <input
+                                type="number"
+                                class="form-control"
+                                id="orderValueThreshold"
+                                value="1000"
+                              />
+                            </div>
+                            <small class="text-muted"
+                              >Send special notifications for orders above this
+                              value</small
+                            >
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label
+                              for="notificationFrequency"
+                              class="form-label"
+                              >Notification Frequency</label
+                            >
+                            <select
+                              class="form-select"
+                              id="notificationFrequency"
+                            >
+                              <option value="immediate" selected>
+                                Immediate
+                              </option>
+                              <option value="hourly">Hourly Digest</option>
+                              <option value="daily">Daily Digest</option>
+                            </select>
+                            <small class="text-muted"
+                              >How often notifications should be grouped and
+                              sent</small
+                            >
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="quietHours" class="form-label"
+                              >Quiet Hours</label
+                            >
+                            <div class="d-flex align-items-center">
+                              <select class="form-select me-2" id="quietStart">
+                                <option value="20:00" selected>8:00 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                                <option value="22:00">10:00 PM</option>
+                                <option value="23:00">11:00 PM</option>
+                              </select>
+                              <span>to</span>
+                              <select class="form-select ms-2" id="quietEnd">
+                                <option value="06:00">6:00 AM</option>
+                                <option value="07:00" selected>7:00 AM</option>
+                                <option value="08:00">8:00 AM</option>
+                                <option value="09:00">9:00 AM</option>
+                              </select>
+                            </div>
+                            <small class="text-muted"
+                              >Don't send notifications during these
+                              hours</small
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary me-2"
+                        >
+                          Reset to Default
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save Changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Inventory Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="inventory"
+                    role="tabpanel"
+                    aria-labelledby="inventory-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Inventory Settings</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          General Inventory Settings
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="inventoryMethod" class="form-label"
+                              >Inventory Valuation Method</label
+                            >
+                            <select class="form-select" id="inventoryMethod">
+                              <option value="fifo" selected>
+                                FIFO (First In, First Out)
+                              </option>
+                              <option value="lifo">
+                                LIFO (Last In, First Out)
+                              </option>
+                              <option value="weighted">Weighted Average</option>
+                              <option value="specific">
+                                Specific Identification
+                              </option>
+                            </select>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="barcodeFormat" class="form-label"
+                              >Default Barcode Format</label
+                            >
+                            <select class="form-select" id="barcodeFormat">
+                              <option value="upc" selected>UPC-A</option>
+                              <option value="ean">EAN-13</option>
+                              <option value="code128">Code 128</option>
+                              <option value="qr">QR Code</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="reorderPercent" class="form-label"
+                              >Default Reorder Point (%)</label
+                            >
+                            <div class="input-group">
+                              <input
+                                type="number"
+                                class="form-control"
+                                id="reorderPercent"
+                                value="25"
+                              />
+                              <span class="input-group-text">%</span>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="productCodeFormat" class="form-label"
+                              >Product Code Format</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="productCodeFormat"
+                              value="[CAT]-[YYYY]-[####]"
+                            />
+                            <small class="text-muted"
+                              >Use [CAT] for category, [YYYY] for year, [####]
+                              for sequential number</small
+                            >
+                          </div>
+                        </div>
+                        <div class="row mt-2">
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="allowNegativeStock"
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="allowNegativeStock"
+                                  >Allow Negative Stock</label
+                                >
+                                <p class="switch-description">
+                                  Permit inventory to go below zero
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="autoShipBackorder"
+                                checked
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="autoShipBackorder"
+                                  >Auto-Ship Backordered Items</label
+                                >
+                                <p class="switch-description">
+                                  Automatically ship items when they become
+                                  available
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Stock Location Settings
+                        </h5>
+                        <div class="settings-card mb-3">
+                          <div class="d-flex justify-content-between mb-3">
+                            <h6 class="mb-0">Warehouse Locations</h6>
+                            <button class="btn btn-sm btn-outline-primary">
+                              <i class="fas fa-plus me-1"></i> Add Location
+                            </button>
+                          </div>
+                          <div class="table-responsive">
+                            <table class="table table-sm">
+                              <thead>
+                                <tr>
+                                  <th>Location Code</th>
+                                  <th>Location Name</th>
+                                  <th>Type</th>
+                                  <th>Active</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>WH-SF</td>
+                                  <td>San Francisco Warehouse</td>
+                                  <td>Primary</td>
+                                  <td>
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        checked
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>WH-LA</td>
+                                  <td>Los Angeles Warehouse</td>
+                                  <td>Secondary</td>
+                                  <td>
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        checked
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>WH-NY</td>
+                                  <td>New York Warehouse</td>
+                                  <td>Secondary</td>
+                                  <td>
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        checked
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Product Categories
+                        </h5>
+                        <div class="settings-card mb-3">
+                          <div class="d-flex justify-content-between mb-3">
+                            <h6 class="mb-0">Manage Categories</h6>
+                            <button class="btn btn-sm btn-outline-primary">
+                              <i class="fas fa-plus me-1"></i> Add Category
+                            </button>
+                          </div>
+                          <div class="table-responsive">
+                            <table class="table table-sm">
+                              <thead>
+                                <tr>
+                                  <th>Category ID</th>
+                                  <th>Name</th>
+                                  <th>Parent Category</th>
+                                  <th>Products</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>ELEC</td>
+                                  <td>Electronics</td>
+                                  <td>-</td>
+                                  <td>256</td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>ELEC-LAP</td>
+                                  <td>Laptops</td>
+                                  <td>Electronics</td>
+                                  <td>45</td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>CLOTH</td>
+                                  <td>Clothing</td>
+                                  <td>-</td>
+                                  <td>124</td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>FURN</td>
+                                  <td>Furniture</td>
+                                  <td>-</td>
+                                  <td>89</td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      Edit
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary me-2"
+                        >
+                          Discard Changes
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save Changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Security Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="security"
+                    role="tabpanel"
+                    aria-labelledby="security-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Security Settings</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Password Settings
+                        </h5>
+                        <div class="row">
+                          <div class="col-md-6 mb-4">
+                            <label for="currentPassword" class="form-label"
+                              >Current Password</label
+                            >
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="currentPassword"
+                              placeholder="Enter current password"
+                            />
+                          </div>
+                          <div class="col-md-6 mb-4"></div>
+                          <div class="col-md-6 mb-3">
+                            <label for="newPassword" class="form-label"
+                              >New Password</label
+                            >
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="newPassword"
+                              placeholder="Enter new password"
+                            />
+                            <div class="mt-2">
+                              <div class="d-flex align-items-center mb-1">
+                                <div
+                                  class="progress flex-grow-1"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="progress-bar bg-success"
+                                    role="progressbar"
+                                    style="width: 80%"
+                                    aria-valuenow="80"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                  ></div>
+                                </div>
+                                <span class="ms-2 text-success">Strong</span>
+                              </div>
+                              <small class="text-muted"
+                                >Password must be at least 8 characters with
+                                uppercase, lowercase, numbers, and special
+                                characters</small
+                              >
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <label for="confirmPassword" class="form-label"
+                              >Confirm New Password</label
+                            >
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="confirmPassword"
+                              placeholder="Confirm new password"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Two-Factor Authentication
+                        </h5>
+                        <div class="settings-card mb-3">
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-3"
+                          >
+                            <div>
+                              <h6 class="mb-1">Two-Factor Authentication</h6>
+                              <p class="text-muted mb-0">
+                                Add an extra layer of security to your account
+                              </p>
+                            </div>
+                            <div class="form-check form-switch">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="twoFactorToggle"
+                                checked
+                              />
+                            </div>
+                          </div>
+                          <div class="alert alert-success mb-3" role="alert">
+                            <i class="fas fa-check-circle me-2"></i> Two-factor
+                            authentication is currently enabled
+                          </div>
+                          <p>
+                            Two-factor authentication adds an additional layer
+                            of security to your account by requiring more than
+                            just a password to sign in.
+                          </p>
+                          <button class="btn btn-outline-secondary">
+                            <i class="fas fa-key me-2"></i> Reconfigure
+                            Two-Factor Authentication
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Login Sessions</h5>
+                        <div class="settings-card mb-3">
+                          <h6 class="mb-3">Active Sessions</h6>
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Device</th>
+                                  <th>Location</th>
+                                  <th>IP Address</th>
+                                  <th>Last Activity</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <i
+                                        class="fas fa-laptop me-2 text-primary"
+                                      ></i>
+                                      <span>MacBook Pro (Current Device)</span>
+                                    </div>
+                                  </td>
+                                  <td>San Francisco, CA</td>
+                                  <td>192.168.1.145</td>
+                                  <td>Just now</td>
+                                  <td>-</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <i
+                                        class="fas fa-mobile-alt me-2 text-primary"
+                                      ></i>
+                                      <span>iPhone 13</span>
+                                    </div>
+                                  </td>
+                                  <td>San Francisco, CA</td>
+                                  <td>172.24.0.132</td>
+                                  <td>2 hours ago</td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-danger"
+                                    >
+                                      Log Out
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="d-flex align-items-center">
+                                      <i
+                                        class="fas fa-desktop me-2 text-primary"
+                                      ></i>
+                                      <span>Office Desktop</span>
+                                    </div>
+                                  </td>
+                                  <td>Oakland, CA</td>
+                                  <td>192.168.4.28</td>
+                                  <td>Yesterday</td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-danger"
+                                    >
+                                      Log Out
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <button class="btn btn-danger mt-3">
+                            <i class="fas fa-sign-out-alt me-2"></i> Log Out of
+                            All Devices
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">API Access</h5>
+                        <div class="settings-card mb-3">
+                          <div class="d-flex justify-content-between mb-3">
+                            <div>
+                              <h6 class="mb-1">API Tokens</h6>
+                              <p class="text-muted mb-0">
+                                Manage tokens for third-party integrations
+                              </p>
+                            </div>
+                            <button class="btn btn-outline-primary">
+                              <i class="fas fa-plus me-2"></i> Generate New
+                              Token
+                            </button>
+                          </div>
+                          <div class="mb-3">
+                            <label for="apiToken" class="form-label"
+                              >Current API Token</label
+                            >
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control token-field"
+                                id="apiToken"
+                                value="sk_live_51KjXpSHCzCHO78SDlkGHFsdAEwiw8D9FAVNc"
+                                readonly
+                              />
+                              <button
+                                class="btn btn-outline-secondary copy-btn"
+                                type="button"
+                              >
+                                <i class="fas fa-copy"></i>
+                              </button>
+                            </div>
+                            <small class="text-muted"
+                              >Last used: April 12, 2023 at 3:45 PM</small
+                            >
+                          </div>
+                          <div class="alert alert-warning" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Never share your API tokens with anyone. They
+                            provide full access to your account.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary me-2"
+                        >
+                          Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Update Security Settings
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Integrations Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="integrations"
+                    role="tabpanel"
+                    aria-labelledby="integrations-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Integrations</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Connected Services
+                        </h5>
+                        <div class="settings-card mb-3">
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i
+                                  class="fab fa-shopify fa-lg text-primary"
+                                ></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">Shopify</h6>
+                                <p class="text-muted mb-0">
+                                  E-commerce platform integration
+                                </p>
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <span
+                                class="badge bg-success me-3 integration-status-badge"
+                                >Connected</span
+                              >
+                              <button class="btn btn-sm btn-outline-danger">
+                                Disconnect
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i class="fab fa-stripe fa-lg text-primary"></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">Stripe</h6>
+                                <p class="text-muted mb-0">
+                                  Payment processing
+                                </p>
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <span
+                                class="badge bg-success me-3 integration-status-badge"
+                                >Connected</span
+                              >
+                              <button class="btn btn-sm btn-outline-danger">
+                                Disconnect
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i class="fab fa-slack fa-lg text-primary"></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">Slack</h6>
+                                <p class="text-muted mb-0">
+                                  Team communication
+                                </p>
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <span
+                                class="badge bg-success me-3 integration-status-badge"
+                                >Connected</span
+                              >
+                              <button class="btn btn-sm btn-outline-danger">
+                                Disconnect
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex align-items-center justify-content-between"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i class="fab fa-google fa-lg text-primary"></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">Google Workspace</h6>
+                                <p class="text-muted mb-0">
+                                  Gmail, Calendar, and Drive integration
+                                </p>
+                              </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <span
+                                class="badge bg-warning me-3 integration-status-badge"
+                                >Pending</span
+                              >
+                              <button class="btn btn-sm btn-outline-primary">
+                                Complete Setup
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Available Integrations
+                        </h5>
+                        <div class="settings-card mb-3">
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i class="fab fa-amazon fa-lg text-primary"></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">Amazon Marketplace</h6>
+                                <p class="text-muted mb-0">
+                                  Sync inventory with Amazon selling channels
+                                </p>
+                              </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                              Connect
+                            </button>
+                          </div>
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i class="fab fa-paypal fa-lg text-primary"></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">PayPal</h6>
+                                <p class="text-muted mb-0">
+                                  Alternative payment processing
+                                </p>
+                              </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                              Connect
+                            </button>
+                          </div>
+                          <div
+                            class="d-flex align-items-center justify-content-between mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i class="fab fa-fedex fa-lg text-primary"></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">FedEx</h6>
+                                <p class="text-muted mb-0">
+                                  Shipping and logistics integration
+                                </p>
+                              </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                              Connect
+                            </button>
+                          </div>
+                          <div
+                            class="d-flex align-items-center justify-content-between"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="integration-logo">
+                                <i
+                                  class="fab fa-mailchimp fa-lg text-primary"
+                                ></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-1">Mailchimp</h6>
+                                <p class="text-muted mb-0">
+                                  Email marketing automation
+                                </p>
+                              </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                              Connect
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">API Settings</h5>
+                        <div class="settings-card mb-3">
+                          <p>
+                            Configure how third-party applications can access
+                            your data through our API.
+                          </p>
+
+                          <div class="mb-3">
+                            <h6 class="settings-section-subtitle">
+                              API Access Control
+                            </h6>
+                            <div
+                              class="form-check form-switch d-flex align-items-center mb-2"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="allowReadAccess"
+                                checked
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="allowReadAccess"
+                                  >Allow Read Access</label
+                                >
+                                <p class="switch-description">
+                                  Permit applications to read your inventory and
+                                  order data
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              class="form-check form-switch d-flex align-items-center mb-2"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="allowWriteAccess"
+                                checked
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="allowWriteAccess"
+                                  >Allow Write Access</label
+                                >
+                                <p class="switch-description">
+                                  Permit applications to create or modify
+                                  inventory and orders
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              class="form-check form-switch d-flex align-items-center"
+                            >
+                              <input
+                                class="form-check-input me-3"
+                                type="checkbox"
+                                id="allowDeleteAccess"
+                              />
+                              <div>
+                                <label
+                                  class="switch-label"
+                                  for="allowDeleteAccess"
+                                  >Allow Delete Access</label
+                                >
+                                <p class="switch-description">
+                                  Permit applications to remove data (use with
+                                  caution)
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <h6 class="settings-section-subtitle">
+                              Webhook Configuration
+                            </h6>
+                            <label for="webhookUrl" class="form-label"
+                              >Webhook URL</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="webhookUrl"
+                              placeholder="https://your-domain.com/webhook"
+                              value="https://acmecorp.com/api/webhook"
+                            />
+                            <small class="text-muted"
+                              >Events will be sent to this URL as HTTP POST
+                              requests</small
+                            >
+                          </div>
+
+                          <div>
+                            <h6 class="settings-section-subtitle">
+                              Webhook Events
+                            </h6>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-check mb-2">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="webhookInventory"
+                                    checked
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="webhookInventory"
+                                    >Inventory Updates</label
+                                  >
+                                </div>
+                                <div class="form-check mb-2">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="webhookOrders"
+                                    checked
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="webhookOrders"
+                                    >Order Status Changes</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-check mb-2">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="webhookShipments"
+                                    checked
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="webhookShipments"
+                                    >Shipment Updates</label
+                                  >
+                                </div>
+                                <div class="form-check mb-2">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="webhookProducts"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="webhookProducts"
+                                    >Product Changes</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary me-2"
+                        >
+                          Reset to Default
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save Changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Billing Tab -->
+                  <div
+                    class="tab-pane fade"
+                    id="billing"
+                    role="tabpanel"
+                    aria-labelledby="billing-tab"
+                  >
+                    <div class="settings-tab-content">
+                      <h4 class="mb-4">Billing & Subscription</h4>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Current Plan</h5>
+                        <div class="settings-card">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                          >
+                            <div>
+                              <h6 class="mb-1">Business Pro Plan</h6>
+                              <p class="text-muted mb-0">
+                                $49.99/month, billed monthly
+                              </p>
+                            </div>
+                            <span class="badge bg-success">Active</span>
+                          </div>
+                          <div class="progress mb-3" style="height: 6px">
+                            <div
+                              class="progress-bar bg-primary"
+                              role="progressbar"
+                              style="width: 75%"
+                              aria-valuenow="75"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                            ></div>
+                          </div>
+                          <div class="d-flex justify-content-between mb-3">
+                            <span>3,750 / 5,000 monthly transactions</span>
+                            <span>75% used</span>
+                          </div>
+                          <div class="d-flex flex-wrap">
+                            <button class="btn btn-outline-primary me-2 mb-2">
+                              Upgrade Plan
+                            </button>
+                            <button class="btn btn-outline-secondary me-2 mb-2">
+                              View Plan Details
+                            </button>
+                            <button class="btn btn-outline-danger mb-2">
+                              Cancel Subscription
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Payment Method</h5>
+                        <div class="settings-card mb-3">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="me-3">
+                                <i
+                                  class="fab fa-cc-visa fa-2x text-primary"
+                                ></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-0">Visa ending in 4242</h6>
+                                <p class="text-muted mb-0">Expires 04/2025</p>
+                              </div>
+                            </div>
+                            <div>
+                              <span class="badge bg-primary me-2">Default</span>
+                              <button class="btn btn-sm btn-outline-secondary">
+                                Edit
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between align-items-center"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="me-3">
+                                <i
+                                  class="fab fa-cc-mastercard fa-2x text-secondary"
+                                ></i>
+                              </div>
+                              <div>
+                                <h6 class="mb-0">Mastercard ending in 8888</h6>
+                                <p class="text-muted mb-0">Expires 08/2024</p>
+                              </div>
+                            </div>
+                            <div>
+                              <button
+                                class="btn btn-sm btn-outline-primary me-2"
+                              >
+                                Make Default
+                              </button>
+                              <button class="btn btn-sm btn-outline-secondary">
+                                Edit
+                              </button>
+                            </div>
+                          </div>
+                          <div class="mt-4">
+                            <button class="btn btn-outline-primary">
+                              <i class="fas fa-plus me-2"></i> Add Payment
+                              Method
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">Billing History</h5>
+                        <div class="settings-card">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Invoice #</th>
+                                  <th>Date</th>
+                                  <th>Amount</th>
+                                  <th>Status</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>INV-2023-0412</td>
+                                  <td>Apr 12, 2023</td>
+                                  <td>$49.99</td>
+                                  <td>
+                                    <span class="badge bg-success">Paid</span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      <i class="fas fa-download me-1"></i>
+                                      Download
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>INV-2023-0312</td>
+                                  <td>Mar 12, 2023</td>
+                                  <td>$49.99</td>
+                                  <td>
+                                    <span class="badge bg-success">Paid</span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      <i class="fas fa-download me-1"></i>
+                                      Download
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>INV-2023-0212</td>
+                                  <td>Feb 12, 2023</td>
+                                  <td>$49.99</td>
+                                  <td>
+                                    <span class="badge bg-success">Paid</span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      <i class="fas fa-download me-1"></i>
+                                      Download
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>INV-2023-0112</td>
+                                  <td>Jan 12, 2023</td>
+                                  <td>$49.99</td>
+                                  <td>
+                                    <span class="badge bg-success">Paid</span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      <i class="fas fa-download me-1"></i>
+                                      Download
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>INV-2022-1212</td>
+                                  <td>Dec 12, 2022</td>
+                                  <td>$49.99</td>
+                                  <td>
+                                    <span class="badge bg-success">Paid</span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      class="btn btn-sm btn-outline-secondary"
+                                    >
+                                      <i class="fas fa-download me-1"></i>
+                                      Download
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="text-center mt-3">
+                            <button class="btn btn-outline-primary">
+                              View All Invoices
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="settings-section">
+                        <h5 class="settings-section-title">
+                          Billing Information
+                        </h5>
+                        <div class="settings-card">
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="billingName" class="form-label"
+                                >Billing Name</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="billingName"
+                                value="Acme Corporation"
+                              />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="billingEmail" class="form-label"
+                                >Billing Email</label
+                              >
+                              <input
+                                type="email"
+                                class="form-control"
+                                id="billingEmail"
+                                value="billing@acmecorp.com"
+                              />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="taxId" class="form-label"
+                                >Tax ID / VAT Number</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="taxId"
+                                value="US123456789"
+                              />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="billingPhone" class="form-label"
+                                >Billing Phone</label
+                              >
+                              <input
+                                type="tel"
+                                class="form-control"
+                                id="billingPhone"
+                                value="+1 (555) 987-6543"
+                              />
+                            </div>
+                            <div class="col-12 mb-3">
+                              <label for="billingAddress" class="form-label"
+                                >Billing Address</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control mb-2"
+                                id="billingAddress"
+                                value="123 Business Ave, Suite 100"
+                              />
+                              <div class="row">
+                                <div class="col-md-5 mb-2 mb-md-0">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="City"
+                                    value="San Francisco"
+                                  />
+                                </div>
+                                <div class="col-md-3 mb-2 mb-md-0">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="State"
+                                    value="CA"
+                                  />
+                                </div>
+                                <div class="col-md-4">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Zip Code"
+                                    value="94107"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-3">
+                            <button class="btn btn-primary">
+                              Update Billing Information
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="settings.js"></script>
+  </body>
+</html>

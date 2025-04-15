@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockPro - Next-Gen Stock Management System</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar Brand -->
+        <div class="sidebar-brand">
+          <h1><i class="fas fa-chart-line me-2"></i> StockPro</h1>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-boxes"></i>
+                <span>Inventory</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Orders</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-truck"></i>
+                <span>Suppliers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-file-invoice"></i>
+                <span>Reports</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <a href="#" class="btn btn-outline-primary btn-sm w-100">
+            <i class="fas fa-question-circle me-1"></i> Help Center
+          </a>
+        </div>
+      </aside>
+
+      <!-- Overlay for mobile view -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper" id="content-wrapper">
+        <!-- Top Navigation Bar -->
+        <header class="topbar">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="search-bar">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..." />
+              <button class="btn" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="dropdown">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">5</span>
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-end notifications-dropdown"
+              >
+                <div class="notification-header">
+                  <h6 class="notification-title">Notifications</h6>
+                  <span class="notification-actions">Mark all as read</span>
+                </div>
+                <ul class="notification-list">
+                  <li class="notification-item">
+                    <div class="notification-icon bg-danger-light">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Low stock alert: Product XYZ is below threshold
+                      </p>
+                      <span class="notification-time">5 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-success-light">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Order #1234 has been fulfilled successfully
+                      </p>
+                      <span class="notification-time">30 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-primary-light">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        New shipment arrived from Supplier ABC
+                      </p>
+                      <span class="notification-time">2 hours ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-warning-light">
+                      <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Pending order #5678 requires attention
+                      </p>
+                      <span class="notification-time">Yesterday</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-info-light">
+                      <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        System update completed successfully
+                      </p>
+                      <span class="notification-time">2 days ago</span>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View all notifications</a>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn" type="button">
+              <i class="fas fa-cog"></i>
+            </button>
+
+            <div class="dropdown">
+              <div
+                class="user-profile"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user-avatar">
+                  <span>JD</span>
+                </div>
+                <div class="user-info">
+                  <div class="user-name">John Doe</div>
+                  <div class="user-role">Admin</div>
+                </div>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-user me-2"></i> Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-cog me-2"></i> Account Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt me-2"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Page Title & Breadcrumb -->
+          <div class="page-title">
+            <h1>Dashboard</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Dashboard
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Key Stats Row -->
+          <div class="row animate-fade-in">
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="dashboard-card stat-card">
+                <div class="d-flex align-items-center">
+                  <div class="icon bg-primary-light">
+                    <i class="fas fa-box"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h2>2,568</h2>
+                    <p>Total Products</p>
+                  </div>
+                </div>
+                <div class="stat-footer">
+                  <span class="text-success">
+                    <i class="fas fa-arrow-up me-1"></i> 4.7%
+                  </span>
+                  <span class="ms-2">Since last month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="dashboard-card stat-card">
+                <div class="d-flex align-items-center">
+                  <div class="icon bg-success-light">
+                    <i class="fas fa-dollar-sign"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h2>$18,790</h2>
+                    <p>Total Revenue</p>
+                  </div>
+                </div>
+                <div class="stat-footer">
+                  <span class="text-success">
+                    <i class="fas fa-arrow-up me-1"></i> 8.3%
+                  </span>
+                  <span class="ms-2">Since last month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="dashboard-card stat-card">
+                <div class="d-flex align-items-center">
+                  <div class="icon bg-warning-light">
+                    <i class="fas fa-shopping-cart"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h2>356</h2>
+                    <p>Pending Orders</p>
+                  </div>
+                </div>
+                <div class="stat-footer">
+                  <span class="text-danger">
+                    <i class="fas fa-arrow-up me-1"></i> 2.8%
+                  </span>
+                  <span class="ms-2">Since last week</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="dashboard-card stat-card">
+                <div class="d-flex align-items-center">
+                  <div class="icon bg-danger-light">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <div class="stat-content">
+                    <h2>24</h2>
+                    <p>Low Stock Items</p>
+                  </div>
+                </div>
+                <div class="stat-footer">
+                  <span class="text-success">
+                    <i class="fas fa-arrow-down me-1"></i> 12.5%
+                  </span>
+                  <span class="ms-2">Since last week</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="row animate-slide-up">
+            <!-- Sales Trend Chart -->
+            <div class="col-xl-8 mb-4">
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h5>Sales & Inventory Trend</h5>
+                  <div class="actions">
+                    <button
+                      class="btn"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-download me-2"></i> Download
+                          Report</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-print me-2"></i> Print</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-share-alt me-2"></i> Share</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="btn-group btn-group-sm" role="group">
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary active"
+                      >
+                        Daily
+                      </button>
+                      <button type="button" class="btn btn-outline-primary">
+                        Weekly
+                      </button>
+                      <button type="button" class="btn btn-outline-primary">
+                        Monthly
+                      </button>
+                    </div>
+
+                    <div class="ms-auto">
+                      <select class="form-select form-select-sm">
+                        <option value="2023">2023</option>
+                        <option value="2022" selected>2022</option>
+                        <option value="2021">2021</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="salesTrendChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inventory Distribution Chart -->
+            <div class="col-xl-4 mb-4">
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h5>Inventory Distribution</h5>
+                  <div class="actions">
+                    <button
+                      class="btn"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-download me-2"></i> Download</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-sync me-2"></i> Refresh</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="inventoryDistributionChart"></canvas>
+                  </div>
+                  <div class="mt-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-2"
+                    >
+                      <span class="d-flex align-items-center">
+                        <span
+                          class="badge-dot"
+                          style="
+                            background-color: var(--primary);
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            display: inline-block;
+                            margin-right: 5px;
+                          "
+                        ></span>
+                        Electronics
+                      </span>
+                      <span class="fw-bold">38%</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-2"
+                    >
+                      <span class="d-flex align-items-center">
+                        <span
+                          class="badge-dot"
+                          style="
+                            background-color: var(--success);
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            display: inline-block;
+                            margin-right: 5px;
+                          "
+                        ></span>
+                        Clothing
+                      </span>
+                      <span class="fw-bold">25%</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-2"
+                    >
+                      <span class="d-flex align-items-center">
+                        <span
+                          class="badge-dot"
+                          style="
+                            background-color: var(--warning);
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            display: inline-block;
+                            margin-right: 5px;
+                          "
+                        ></span>
+                        Furniture
+                      </span>
+                      <span class="fw-bold">17%</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <span class="d-flex align-items-center">
+                        <span
+                          class="badge-dot"
+                          style="
+                            background-color: var(--danger);
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            display: inline-block;
+                            margin-right: 5px;
+                          "
+                        ></span>
+                        Others
+                      </span>
+                      <span class="fw-bold">20%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity & Low Stock Row -->
+          <div class="row">
+            <!-- Recent Transactions -->
+            <div class="col-xl-8 mb-4">
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h5>Recent Transactions</h5>
+                  <div class="actions">
+                    <button class="btn btn-sm btn-outline-primary">
+                      View All
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="data-table table table-hover mb-0">
+                      <thead>
+                        <tr>
+                          <th>Order ID</th>
+                          <th>Product</th>
+                          <th>Date</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>#ORD-7364</td>
+                          <td>
+                            <div class="product-cell">
+                              <div class="product-image">
+                                <i class="fas fa-laptop"></i>
+                              </div>
+                              <div class="product-info">
+                                <div class="product-name">MacBook Pro</div>
+                                <div class="product-category">Electronics</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Apr 15, 2023</td>
+                          <td>$1,899.00</td>
+                          <td>
+                            <span class="status-badge badge-success"
+                              >Completed</span
+                            >
+                          </td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-sm"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >View Details</a
+                                  >
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >Download Invoice</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#ORD-7363</td>
+                          <td>
+                            <div class="product-cell">
+                              <div class="product-image">
+                                <i class="fas fa-tshirt"></i>
+                              </div>
+                              <div class="product-info">
+                                <div class="product-name">Summer T-Shirt</div>
+                                <div class="product-category">Clothing</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Apr 14, 2023</td>
+                          <td>$39.99</td>
+                          <td>
+                            <span class="status-badge badge-warning"
+                              >Pending</span
+                            >
+                          </td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-sm"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >View Details</a
+                                  >
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >Process Order</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#ORD-7362</td>
+                          <td>
+                            <div class="product-cell">
+                              <div class="product-image">
+                                <i class="fas fa-couch"></i>
+                              </div>
+                              <div class="product-info">
+                                <div class="product-name">Office Chair</div>
+                                <div class="product-category">Furniture</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Apr 13, 2023</td>
+                          <td>$249.00</td>
+                          <td>
+                            <span class="status-badge badge-success"
+                              >Completed</span
+                            >
+                          </td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-sm"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >View Details</a
+                                  >
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >Download Invoice</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#ORD-7361</td>
+                          <td>
+                            <div class="product-cell">
+                              <div class="product-image">
+                                <i class="fas fa-headphones"></i>
+                              </div>
+                              <div class="product-info">
+                                <div class="product-name">
+                                  Wireless Headphones
+                                </div>
+                                <div class="product-category">Electronics</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Apr 12, 2023</td>
+                          <td>$159.00</td>
+                          <td>
+                            <span class="status-badge badge-danger"
+                              >Cancelled</span
+                            >
+                          </td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-sm"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >View Details</a
+                                  >
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >Reprocess Order</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#ORD-7360</td>
+                          <td>
+                            <div class="product-cell">
+                              <div class="product-image">
+                                <i class="fas fa-mobile-alt"></i>
+                              </div>
+                              <div class="product-info">
+                                <div class="product-name">Smartphone X</div>
+                                <div class="product-category">Electronics</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>Apr 11, 2023</td>
+                          <td>$899.00</td>
+                          <td>
+                            <span class="status-badge badge-success"
+                              >Completed</span
+                            >
+                          </td>
+                          <td>
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-sm"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >View Details</a
+                                  >
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >Download Invoice</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Low Stock Products -->
+            <div class="col-xl-4 mb-4">
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h5>Low Stock Products</h5>
+                  <div class="actions">
+                    <button class="btn btn-sm btn-outline-primary">
+                      Restock All
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div class="d-flex align-items-center">
+                          <div class="product-image me-3">
+                            <i class="fas fa-laptop"></i>
+                          </div>
+                          <div>
+                            <h6 class="mb-0">MacBook Pro</h6>
+                            <small class="text-muted">SKU: MB-PRO-2022</small>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <div class="fw-bold text-danger">3 left</div>
+                          <small class="text-muted">Min: 10</small>
+                        </div>
+                      </div>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div
+                          class="progress-bar bg-danger"
+                          role="progressbar"
+                          style="width: 15%"
+                          aria-valuenow="15"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item p-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div class="d-flex align-items-center">
+                          <div class="product-image me-3">
+                            <i class="fas fa-headphones"></i>
+                          </div>
+                          <div>
+                            <h6 class="mb-0">Wireless Headphones</h6>
+                            <small class="text-muted">SKU: WH-BT-202</small>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <div class="fw-bold text-danger">5 left</div>
+                          <small class="text-muted">Min: 15</small>
+                        </div>
+                      </div>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div
+                          class="progress-bar bg-danger"
+                          role="progressbar"
+                          style="width: 25%"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item p-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div class="d-flex align-items-center">
+                          <div class="product-image me-3">
+                            <i class="fas fa-tshirt"></i>
+                          </div>
+                          <div>
+                            <h6 class="mb-0">Summer T-Shirt</h6>
+                            <small class="text-muted">SKU: ST-BL-XL</small>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <div class="fw-bold text-warning">8 left</div>
+                          <small class="text-muted">Min: 20</small>
+                        </div>
+                      </div>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          style="width: 40%"
+                          aria-valuenow="40"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item p-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div class="d-flex align-items-center">
+                          <div class="product-image me-3">
+                            <i class="fas fa-mobile-alt"></i>
+                          </div>
+                          <div>
+                            <h6 class="mb-0">Smartphone X</h6>
+                            <small class="text-muted">SKU: SPX-BLK-128</small>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <div class="fw-bold text-warning">7 left</div>
+                          <small class="text-muted">Min: 12</small>
+                        </div>
+                      </div>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          style="width: 35%"
+                          aria-valuenow="35"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item p-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div class="d-flex align-items-center">
+                          <div class="product-image me-3">
+                            <i class="fas fa-couch"></i>
+                          </div>
+                          <div>
+                            <h6 class="mb-0">Office Chair</h6>
+                            <small class="text-muted">SKU: OC-BLK-ERG</small>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <div class="fw-bold text-danger">2 left</div>
+                          <small class="text-muted">Min: 8</small>
+                        </div>
+                      </div>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div
+                          class="progress-bar bg-danger"
+                          role="progressbar"
+                          style="width: 10%"
+                          aria-valuenow="10"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-footer text-center">
+                  <a href="#" class="text-primary">View all low stock items</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="main.js"></script>
+  </body>
+</html>

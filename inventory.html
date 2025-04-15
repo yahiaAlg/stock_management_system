@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory - StockPro Next-Gen Stock Management System</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="inventory.css" />
+  </head>
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar Brand -->
+        <div class="sidebar-brand">
+          <h1><i class="fas fa-chart-line me-2"></i> StockPro</h1>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="inventory.html" class="nav-link active">
+                <i class="fas fa-boxes"></i>
+                <span>Inventory</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Orders</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-truck"></i>
+                <span>Suppliers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-file-invoice"></i>
+                <span>Reports</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <a href="#" class="btn btn-outline-primary btn-sm w-100">
+            <i class="fas fa-question-circle me-1"></i> Help Center
+          </a>
+        </div>
+      </aside>
+
+      <!-- Overlay for mobile view -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper" id="content-wrapper">
+        <!-- Top Navigation Bar -->
+        <header class="topbar">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="search-bar">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..." />
+              <button class="btn" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="dropdown">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">5</span>
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-end notifications-dropdown"
+              >
+                <div class="notification-header">
+                  <h6 class="notification-title">Notifications</h6>
+                  <span class="notification-actions">Mark all as read</span>
+                </div>
+                <ul class="notification-list">
+                  <li class="notification-item">
+                    <div class="notification-icon bg-danger-light">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Low stock alert: MacBook Pro is below threshold
+                      </p>
+                      <span class="notification-time">5 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-success-light">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Order #1234 has been fulfilled successfully
+                      </p>
+                      <span class="notification-time">30 minutes ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-primary-light">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        New shipment arrived from Supplier ABC
+                      </p>
+                      <span class="notification-time">2 hours ago</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-warning-light">
+                      <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        Pending order #5678 requires attention
+                      </p>
+                      <span class="notification-time">Yesterday</span>
+                    </div>
+                  </li>
+                  <li class="notification-item">
+                    <div class="notification-icon bg-info-light">
+                      <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p class="notification-text">
+                        System update completed successfully
+                      </p>
+                      <span class="notification-time">2 days ago</span>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View all notifications</a>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn" type="button">
+              <i class="fas fa-cog"></i>
+            </button>
+
+            <div class="dropdown">
+              <div
+                class="user-profile"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="user-avatar">
+                  <span>JD</span>
+                </div>
+                <div class="user-info">
+                  <div class="user-name">John Doe</div>
+                  <div class="user-role">Admin</div>
+                </div>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-user me-2"></i> Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-cog me-2"></i> Account Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt me-2"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Page Title & Breadcrumb -->
+          <div class="page-title">
+            <h1>Inventory</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Inventory
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Inventory Summary Stats -->
+          <div class="inventory-stats animate-fade-in">
+            <div class="inventory-stat-card">
+              <div class="inventory-stat-title">Total Products</div>
+              <div class="inventory-stat-value">2,568</div>
+              <div class="inventory-stat-change text-success">
+                <i class="fas fa-arrow-up me-1"></i> 4.7% since last month
+              </div>
+            </div>
+
+            <div class="inventory-stat-card">
+              <div class="inventory-stat-title">Total Stock Value</div>
+              <div class="inventory-stat-value">$1,345,890</div>
+              <div class="inventory-stat-change text-success">
+                <i class="fas fa-arrow-up me-1"></i> 8.3% since last month
+              </div>
+            </div>
+
+            <div class="inventory-stat-card">
+              <div class="inventory-stat-title">Low Stock Items</div>
+              <div class="inventory-stat-value">24</div>
+              <div class="inventory-stat-change text-success">
+                <i class="fas fa-arrow-down me-1"></i> 12.5% since last week
+              </div>
+            </div>
+
+            <div class="inventory-stat-card">
+              <div class="inventory-stat-title">Out of Stock Items</div>
+              <div class="inventory-stat-value">7</div>
+              <div class="inventory-stat-change text-danger">
+                <i class="fas fa-arrow-up me-1"></i> 5.2% since last week
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="inventory-actions">
+            <button class="btn btn-primary">
+              <i class="fas fa-plus me-1"></i> Add Product
+            </button>
+            <button class="btn btn-outline-primary">
+              <i class="fas fa-file-import me-1"></i> Import
+            </button>
+            <button class="btn btn-outline-primary">
+              <i class="fas fa-file-export me-1"></i> Export
+            </button>
+            <button class="btn btn-outline-primary">
+              <i class="fas fa-print me-1"></i> Print
+            </button>
+          </div>
+
+          <!-- Filters -->
+          <div class="inventory-filter-card animate-slide-up">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0">Filters</h6>
+              <button class="btn btn-sm btn-link">Reset All</button>
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-item">
+                <div class="filter-label">Category</div>
+                <div class="d-flex flex-wrap mt-2">
+                  <span class="tag-badge category-filter-tag active">All</span>
+                  <span class="tag-badge category-filter-tag">Electronics</span>
+                  <span class="tag-badge category-filter-tag">Clothing</span>
+                  <span class="tag-badge category-filter-tag">Furniture</span>
+                  <span class="tag-badge category-filter-tag">Others</span>
+                </div>
+              </div>
+
+              <div class="filter-item">
+                <div class="filter-label">Stock Status</div>
+                <select class="form-select form-select-sm">
+                  <option selected>All</option>
+                  <option>In Stock</option>
+                  <option>Low Stock</option>
+                  <option>Out of Stock</option>
+                </select>
+              </div>
+
+              <div class="filter-item">
+                <div class="filter-label">Supplier</div>
+                <select class="form-select form-select-sm">
+                  <option selected>All Suppliers</option>
+                  <option>Supplier A</option>
+                  <option>Supplier B</option>
+                  <option>Supplier C</option>
+                  <option>Supplier D</option>
+                </select>
+              </div>
+
+              <div class="filter-item">
+                <div class="filter-label">Price Range</div>
+                <div class="d-flex align-items-center gap-2">
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    placeholder="Min"
+                  />
+                  <span>-</span>
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    placeholder="Max"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <div class="d-flex align-items-center">
+                <div class="me-3">
+                  <strong>Applied Filters:</strong>
+                </div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="tag-badge">
+                    Category: Electronics <i class="fas fa-times-circle"></i>
+                  </span>
+                  <span class="tag-badge">
+                    Price: $100 - $1000 <i class="fas fa-times-circle"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inventory Table -->
+          <div class="dashboard-card inventory-table-card">
+            <div class="card-header">
+              <h5>Inventory Items (2,568)</h5>
+              <div class="d-flex gap-2">
+                <div class="input-group input-group-sm" style="width: 250px">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search inventory..."
+                  />
+                  <button class="btn btn-outline-secondary" type="button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+                <button class="btn btn-sm btn-outline-primary">
+                  <i class="fas fa-filter me-1"></i> Columns
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="data-table table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="selectAll"
+                          />
+                        </div>
+                      </th>
+                      <th>Product Name</th>
+                      <th>SKU</th>
+                      <th>Category</th>
+                      <th>Stock</th>
+                      <th>Price</th>
+                      <th>Status</th>
+                      <th>Last Updated</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-laptop"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">MacBook Pro</div>
+                            <div class="product-category">Electronics</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>MB-PRO-2022</td>
+                      <td>Electronics</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-danger"
+                            >3
+                            <span class="stock-trend-indicator stock-trend-down"
+                              >-2</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div class="stock-level-bar stock-level-low"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$1,899.00</td>
+                      <td>
+                        <span class="status-badge badge-danger">Low Stock</span>
+                      </td>
+                      <td>Apr 15, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-headphones"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">Wireless Headphones</div>
+                            <div class="product-category">Electronics</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>WH-BT-202</td>
+                      <td>Electronics</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-danger"
+                            >5
+                            <span class="stock-trend-indicator stock-trend-down"
+                              >-3</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div class="stock-level-bar stock-level-low"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$159.00</td>
+                      <td>
+                        <span class="status-badge badge-danger">Low Stock</span>
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-tshirt"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">Summer T-Shirt</div>
+                            <div class="product-category">Clothing</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>ST-BL-XL</td>
+                      <td>Clothing</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-warning"
+                            >8
+                            <span class="stock-trend-indicator stock-trend-down"
+                              >-1</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div
+                              class="stock-level-bar stock-level-medium"
+                            ></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$39.99</td>
+                      <td>
+                        <span class="status-badge badge-warning"
+                          >Medium Stock</span
+                        >
+                      </td>
+                      <td>Apr 13, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-couch"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">Office Chair</div>
+                            <div class="product-category">Furniture</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>OC-BLK-ERG</td>
+                      <td>Furniture</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-danger"
+                            >2
+                            <span class="stock-trend-indicator stock-trend-down"
+                              >-1</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div class="stock-level-bar stock-level-low"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$249.00</td>
+                      <td>
+                        <span class="status-badge badge-danger">Low Stock</span>
+                      </td>
+                      <td>Apr 12, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-mobile-alt"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">Smartphone X</div>
+                            <div class="product-category">Electronics</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>SPX-BLK-128</td>
+                      <td>Electronics</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-warning"
+                            >7
+                            <span class="stock-trend-indicator stock-trend-up"
+                              >+2</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div
+                              class="stock-level-bar stock-level-medium"
+                            ></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$899.00</td>
+                      <td>
+                        <span class="status-badge badge-warning"
+                          >Medium Stock</span
+                        >
+                      </td>
+                      <td>Apr 11, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-television"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">4K Smart TV</div>
+                            <div class="product-category">Electronics</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>TV-SM-55</td>
+                      <td>Electronics</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-success"
+                            >24
+                            <span class="stock-trend-indicator stock-trend-up"
+                              >+5</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div class="stock-level-bar stock-level-high"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$799.00</td>
+                      <td>
+                        <span class="status-badge badge-success">In Stock</span>
+                      </td>
+                      <td>Apr 10, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-chair"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">Dining Chair Set</div>
+                            <div class="product-category">Furniture</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>DC-OAK-4PC</td>
+                      <td>Furniture</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-success"
+                            >15
+                            <span class="stock-trend-indicator stock-trend-up"
+                              >+3</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div class="stock-level-bar stock-level-high"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$399.00</td>
+                      <td>
+                        <span class="status-badge badge-success">In Stock</span>
+                      </td>
+                      <td>Apr 9, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="product-cell">
+                          <div class="product-image">
+                            <i class="fas fa-shoe-prints"></i>
+                          </div>
+                          <div class="product-info">
+                            <div class="product-name">Running Shoes</div>
+                            <div class="product-category">Clothing</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>RS-BLU-42</td>
+                      <td>Clothing</td>
+                      <td>
+                        <div>
+                          <span class="fw-bold text-success"
+                            >32
+                            <span class="stock-trend-indicator stock-trend-up"
+                              >+8</span
+                            ></span
+                          >
+                          <div class="stock-level-indicator">
+                            <div class="stock-level-bar stock-level-high"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$89.99</td>
+                      <td>
+                        <span class="status-badge badge-success">In Stock</span>
+                      </td>
+                      <td>Apr 8, 2023</td>
+                      <td>
+                        <div class="dropdown action-dropdown">
+                          <button
+                            class="btn btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-edit me-2"></i> Edit</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-plus-circle me-2"></i> Add
+                                Stock</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                ><i class="fas fa-history me-2"></i> View
+                                History</a
+                              >
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                              <a class="dropdown-item text-danger" href="#"
+                                ><i class="fas fa-trash-alt me-2"></i> Delete</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="pagination-info">
+                  Showing <span class="fw-bold">1-8</span> of
+                  <span class="fw-bold">2,568</span> items
+                </div>
+                <nav aria-label="Page navigation">
+                  <ul class="pagination pagination-sm mb-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div
+      class="modal fade"
+      id="addProductModal"
+      tabindex="-1"
+      aria-labelledby="addProductModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">
+              Add New Product
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="productName" class="form-label"
+                    >Product Name *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="productSKU" class="form-label">SKU *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSKU"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="productCategory" class="form-label"
+                    >Category *</label
+                  >
+                  <select class="form-select" id="productCategory" required>
+                    <option value="" selected disabled>Select category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="productSupplier" class="form-label"
+                    >Supplier *</label
+                  >
+                  <select class="form-select" id="productSupplier" required>
+                    <option value="" selected disabled>Select supplier</option>
+                    <option value="supplier-a">Supplier A</option>
+                    <option value="supplier-b">Supplier B</option>
+                    <option value="supplier-c">Supplier C</option>
+                    <option value="supplier-d">Supplier D</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="productPrice" class="form-label"
+                    >Price ($) *</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="productPrice"
+                    step="0.01"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="productCost" class="form-label">Cost ($) *</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="productCost"
+                    step="0.01"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="productQuantity" class="form-label"
+                    >Quantity *</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="productQuantity"
+                    min="0"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="productDescription" class="form-label"
+                  >Description</label
+                >
+                <textarea
+                  class="form-control"
+                  id="productDescription"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="productMinStock" class="form-label"
+                    >Minimum Stock Level *</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="productMinStock"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="productLocation" class="form-label"
+                    >Storage Location</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productLocation"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="productTags" class="form-label">Tags</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productTags"
+                  placeholder="Enter tags separated by commas"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Product Image</label>
+                <div class="input-group">
+                  <input type="file" class="form-control" id="productImage" />
+                  <label class="input-group-text" for="productImage"
+                    >Upload</label
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary">Add Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="inventory.js"></script>
+  </body>
+</html>
